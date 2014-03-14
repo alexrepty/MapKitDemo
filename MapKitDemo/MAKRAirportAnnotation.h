@@ -53,4 +53,13 @@ extern NSString *const MAKRAirportAnnotationIconClosed;
  */
 - (id)initWithCode:(NSString *)code city:(NSString *)city latitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude type:(NSString *)type;
 
+/*!
+ *  Determines whether this annotation either is of a given type or contains a given type.
+ *
+ *  @param type Any given airport type (see MAKRAirportAnnotationIcon* constants).
+ *
+ *  @return YES if this annotation is of the given type or contains an annotation of the given type.
+ */
+- (BOOL)hasContainedAnnotationsOfType:(NSString *)type;
+
 @end

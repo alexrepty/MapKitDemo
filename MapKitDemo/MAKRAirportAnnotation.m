@@ -35,10 +35,31 @@ NSString *const MAKRAirportAnnotationIconClosed = @"closed";
 		self.type = type;
         self.icon = [_airportAnnotationIcons objectForKey:self.type];
         if (!self.icon) {
+			self.type = MAKRAirportAnnotationIconBigAirport;
 			self.icon = [_airportAnnotationIcons objectForKey:MAKRAirportAnnotationIconBigAirport];
 		}
     }
     return self;
+}
+
+#pragma mark -
+#pragma mark MAKRAirportAnnotation Public Methods
+
+- (BOOL)hasContainedAnnotationsOfType:(NSString *)type {
+	if ([type isEqualToString:self.type]) {
+		return YES;
+	}
+	
+	BOOL hasType = NO;
+	
+	for (MAKRAirportAnnotation *subAnnotation in self.containedAnnotations) {
+		hasType = [subAnnotation hasContainedAnnotationsOfType:type];
+		if (hasType) {
+			return hasType;
+		}
+	}
+	
+	return hasType;
 }
 
 #pragma mark -

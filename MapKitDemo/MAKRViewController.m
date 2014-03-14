@@ -14,6 +14,9 @@
 // Map Model Layer
 #import "MAKRAirportAnnotation.h"
 
+// Views
+#import "MAKRAirportAnnotationView.h"
+
 @implementation MAKRViewController
 
 #pragma mark -
@@ -76,8 +79,16 @@
 #pragma mark -
 #pragma mark MKMapViewDelegate Methods
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+	if (![annotation isKindOfClass:[MAKRAirportAnnotation class]]) {
+		return nil;
+	}
+	
+	MKAnnotationView *view = [[MAKRAirportAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:MAKRSingleAirportAnnotationViewReuseIdentifier];
+	return view;
+}
+
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-	NSLog(@"%s mapRect = %@", __PRETTY_FUNCTION__, MKStringFromMapRect(self.mapView.visibleMapRect));
 	[self.mapView updateClustering];
 }
 

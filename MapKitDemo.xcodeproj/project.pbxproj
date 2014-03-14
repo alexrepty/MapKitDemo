@@ -41,6 +41,17 @@
 		B47A071518D3489200B4E95D /* seaplane_base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A070518D3489200B4E95D /* seaplane_base@2x.png */; };
 		B47A071618D3489200B4E95D /* small_airport.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A070618D3489200B4E95D /* small_airport.png */; };
 		B47A071718D3489200B4E95D /* small_airport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A070718D3489200B4E95D /* small_airport@2x.png */; };
+		B47A071A18D34DFB00B4E95D /* MAKRAirportAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B47A071918D34DFB00B4E95D /* MAKRAirportAnnotationView.m */; };
+		B47A072518D354E600B4E95D /* x_big_airport.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A071B18D354E600B4E95D /* x_big_airport.png */; };
+		B47A072618D354E600B4E95D /* x_big_airport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A071C18D354E600B4E95D /* x_big_airport@2x.png */; };
+		B47A072718D354E600B4E95D /* x_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A071D18D354E600B4E95D /* x_closed.png */; };
+		B47A072818D354E600B4E95D /* x_closed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A071E18D354E600B4E95D /* x_closed@2x.png */; };
+		B47A072918D354E600B4E95D /* x_heliport.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A071F18D354E600B4E95D /* x_heliport.png */; };
+		B47A072A18D354E600B4E95D /* x_heliport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072018D354E600B4E95D /* x_heliport@2x.png */; };
+		B47A072B18D354E600B4E95D /* x_seaplane_base.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072118D354E600B4E95D /* x_seaplane_base.png */; };
+		B47A072C18D354E600B4E95D /* x_seaplane_base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072218D354E600B4E95D /* x_seaplane_base@2x.png */; };
+		B47A072D18D354E600B4E95D /* x_small_airport.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072318D354E600B4E95D /* x_small_airport.png */; };
+		B47A072E18D354E600B4E95D /* x_small_airport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072418D354E600B4E95D /* x_small_airport@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +107,18 @@
 		B47A070518D3489200B4E95D /* seaplane_base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seaplane_base@2x.png"; sourceTree = "<group>"; };
 		B47A070618D3489200B4E95D /* small_airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_airport.png; sourceTree = "<group>"; };
 		B47A070718D3489200B4E95D /* small_airport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small_airport@2x.png"; sourceTree = "<group>"; };
+		B47A071818D34DFB00B4E95D /* MAKRAirportAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAKRAirportAnnotationView.h; sourceTree = "<group>"; };
+		B47A071918D34DFB00B4E95D /* MAKRAirportAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAKRAirportAnnotationView.m; sourceTree = "<group>"; };
+		B47A071B18D354E600B4E95D /* x_big_airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_big_airport.png; sourceTree = "<group>"; };
+		B47A071C18D354E600B4E95D /* x_big_airport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_big_airport@2x.png"; sourceTree = "<group>"; };
+		B47A071D18D354E600B4E95D /* x_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_closed.png; sourceTree = "<group>"; };
+		B47A071E18D354E600B4E95D /* x_closed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_closed@2x.png"; sourceTree = "<group>"; };
+		B47A071F18D354E600B4E95D /* x_heliport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_heliport.png; sourceTree = "<group>"; };
+		B47A072018D354E600B4E95D /* x_heliport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_heliport@2x.png"; sourceTree = "<group>"; };
+		B47A072118D354E600B4E95D /* x_seaplane_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_seaplane_base.png; sourceTree = "<group>"; };
+		B47A072218D354E600B4E95D /* x_seaplane_base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_seaplane_base@2x.png"; sourceTree = "<group>"; };
+		B47A072318D354E600B4E95D /* x_small_airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_small_airport.png; sourceTree = "<group>"; };
+		B47A072418D354E600B4E95D /* x_small_airport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_small_airport@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +188,8 @@
 				B47A06CE18D342A900B4E95D /* MAKRViewController.m */,
 				B47A06F418D3448400B4E95D /* MAKRAirportAnnotation.h */,
 				B47A06F518D3448400B4E95D /* MAKRAirportAnnotation.m */,
+				B47A071818D34DFB00B4E95D /* MAKRAirportAnnotationView.h */,
+				B47A071918D34DFB00B4E95D /* MAKRAirportAnnotationView.m */,
 				B47A06D018D342A900B4E95D /* Images.xcassets */,
 				B47A06BC18D342A900B4E95D /* Supporting Files */,
 			);
@@ -215,6 +240,16 @@
 		B47A06F718D3489200B4E95D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B47A071B18D354E600B4E95D /* x_big_airport.png */,
+				B47A071C18D354E600B4E95D /* x_big_airport@2x.png */,
+				B47A071D18D354E600B4E95D /* x_closed.png */,
+				B47A071E18D354E600B4E95D /* x_closed@2x.png */,
+				B47A071F18D354E600B4E95D /* x_heliport.png */,
+				B47A072018D354E600B4E95D /* x_heliport@2x.png */,
+				B47A072118D354E600B4E95D /* x_seaplane_base.png */,
+				B47A072218D354E600B4E95D /* x_seaplane_base@2x.png */,
+				B47A072318D354E600B4E95D /* x_small_airport.png */,
+				B47A072418D354E600B4E95D /* x_small_airport@2x.png */,
 				B47A06F818D3489200B4E95D /* Airports.plist */,
 				B47A06F918D3489200B4E95D /* big_airport.png */,
 				B47A06FA18D3489200B4E95D /* big_airport@2x.png */,
@@ -313,15 +348,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				B47A06CC18D342A900B4E95D /* Main_iPad.storyboard in Resources */,
+				B47A072C18D354E600B4E95D /* x_seaplane_base@2x.png in Resources */,
 				B47A071318D3489200B4E95D /* Icon@2x.png in Resources */,
 				B47A071618D3489200B4E95D /* small_airport.png in Resources */,
+				B47A072D18D354E600B4E95D /* x_small_airport.png in Resources */,
 				B47A071418D3489200B4E95D /* seaplane_base.png in Resources */,
+				B47A072618D354E600B4E95D /* x_big_airport@2x.png in Resources */,
 				B47A06D118D342A900B4E95D /* Images.xcassets in Resources */,
 				B47A070F18D3489200B4E95D /* heliport.png in Resources */,
 				B47A070D18D3489200B4E95D /* cluster_black.png in Resources */,
+				B47A072518D354E600B4E95D /* x_big_airport.png in Resources */,
 				B47A070818D3489200B4E95D /* Airports.plist in Resources */,
+				B47A072A18D354E600B4E95D /* x_heliport@2x.png in Resources */,
+				B47A072E18D354E600B4E95D /* x_small_airport@2x.png in Resources */,
 				B47A071118D3489200B4E95D /* Icon-72.png in Resources */,
 				B47A06C918D342A900B4E95D /* Main_iPhone.storyboard in Resources */,
+				B47A072718D354E600B4E95D /* x_closed.png in Resources */,
+				B47A072818D354E600B4E95D /* x_closed@2x.png in Resources */,
 				B47A071718D3489200B4E95D /* small_airport@2x.png in Resources */,
 				B47A070A18D3489200B4E95D /* big_airport@2x.png in Resources */,
 				B47A070918D3489200B4E95D /* big_airport.png in Resources */,
@@ -329,6 +372,8 @@
 				B47A071518D3489200B4E95D /* seaplane_base@2x.png in Resources */,
 				B47A071018D3489200B4E95D /* heliport@2x.png in Resources */,
 				B47A06C018D342A900B4E95D /* InfoPlist.strings in Resources */,
+				B47A072B18D354E600B4E95D /* x_seaplane_base.png in Resources */,
+				B47A072918D354E600B4E95D /* x_heliport.png in Resources */,
 				B47A071218D3489200B4E95D /* Icon.png in Resources */,
 				B47A070B18D3489200B4E95D /* closed.png in Resources */,
 				B47A070E18D3489200B4E95D /* cluster_black@2x.png in Resources */,
@@ -351,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B47A06C218D342A900B4E95D /* main.m in Sources */,
+				B47A071A18D34DFB00B4E95D /* MAKRAirportAnnotationView.m in Sources */,
 				B47A06CF18D342A900B4E95D /* MAKRViewController.m in Sources */,
 				B47A06F318D3435E00B4E95D /* ARClusteredMapView.m in Sources */,
 				B47A06C618D342A900B4E95D /* MAKRAppDelegate.m in Sources */,
