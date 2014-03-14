@@ -1,0 +1,3 @@
+[submodule "ARClusteredMapView"]
+	path = ARClusteredMapView
+	url = git@github.com:alexrepty/ARClusteredMapView.git

@@ -8,22 +8,82 @@
 
 #import "MAKRViewController.h"
 
-@interface MAKRViewController ()
+// 3rd Party Frameworks
+#import "ARClusteredMapView.h"
 
-@end
+// Map Model Layer
+#import "MAKRAirportAnnotation.h"
 
 @implementation MAKRViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+#pragma mark -
+#pragma mark UIViewController Methods
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	NSArray *airports = [self loadAllAirports];
+	[self.mapView addAnnotations:airports];
+	
+	// Center the map on Europe
+	MKMapRect mapRect = {{120172028.1, 69686420.2}, {32729926.7, 47049268.1}};
+	[self.mapView setVisibleMapRect:mapRect];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark -
+#pragma mark MAKRViewController Private Methods
+
+- (NSArray *)loadAllAirports {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Airports" ofType:@"plist"];
+    NSArray *deserializedDataSets = [NSPropertyListSerialization propertyListFromData:[NSData dataWithContentsOfFile:path]
+																	 mutabilityOption:NSPropertyListImmutable
+																			   format:NULL
+																	 errorDescription:NULL];
+    NSMutableArray* result = [NSMutableArray array];
+    for (NSDictionary* currentDataSet in deserializedDataSets) {
+		NSString *country = [currentDataSet objectForKey:@"Country"];
+		
+		// For this demo, we're only using airports located in some European countries as this approach to clustering cannot handle very large amount of data.
+		if (![country isEqualToString:@"GB"] &&
+			![country isEqualToString:@"DE"] &&
+			![country isEqualToString:@"FR"]) {
+			continue;
+		}
+		
+        CLLocationDegrees latitude = [[currentDataSet objectForKey:@"Latitude"] doubleValue];
+        CLLocationDegrees longitude = [[currentDataSet objectForKey:@"Longitude"] doubleValue];
+		
+		NSString *code = [currentDataSet objectForKey:@"Code"];
+		NSString *city = [currentDataSet objectForKey:@"City"];
+		NSString *type = [currentDataSet objectForKey:@"Type"];
+		
+		@try {
+			MAKRAirportAnnotation *annotation = [[MAKRAirportAnnotation alloc] initWithCode:code
+																					   city:city
+																				   latitude:latitude
+																				  longitude:longitude
+																					   type:type];
+			[result addObject:annotation];
+		}
+		@catch (NSException *exception) {
+			// silently dismiss this entry and move on to the next one
+			continue;
+		}
+    }
+    return result;
+}
+
+#pragma mark -
+#pragma mark MKMapViewDelegate Methods
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+	NSLog(@"%s mapRect = %@", __PRETTY_FUNCTION__, MKStringFromMapRect(self.mapView.visibleMapRect));
+	[self.mapView updateClustering];
+}
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+	// Make sure that the newly added annotation views are all animated into place from their previous cluster location.
+	[self.mapView animateAnnotationViews:views];
 }
 
 @end

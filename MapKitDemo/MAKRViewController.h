@@ -6,8 +6,17 @@
 //  Copyright (c) 2014 alexrepty. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import MapKit;
 
-@interface MAKRViewController : UIViewController
+@class ARClusteredMapView;
+
+@interface MAKRViewController : UIViewController <MKMapViewDelegate>
+
+/*!
+ @property mapView
+ @abstract The ARClusteredMapView instance where all the magic happens.
+ */
+@property(strong, nonatomic) IBOutlet ARClusteredMapView *mapView;
 
 @end
