@@ -17,6 +17,12 @@
 // Views
 #import "MAKRAirportAnnotationView.h"
 
+@interface MAKRViewController ()
+
+@property(nonatomic, strong) UIView *selectedView;
+
+@end
+
 @implementation MAKRViewController
 
 #pragma mark -
@@ -77,6 +83,17 @@
 }
 
 #pragma mark -
+#pragma mark MAKRViewController Interface Actions
+
+- (IBAction)showRouteToSelectedAirport:(id)sender {
+	
+}
+
+- (IBAction)focusOnSelectedAirportCluster:(id)sender {
+	
+}
+
+#pragma mark -
 #pragma mark MKMapViewDelegate Methods
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -89,7 +106,46 @@
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+	if (![view isKindOfClass:[MAKRAirportAnnotationView class]]) {
+		return;
+	}
 	
+	MAKRAirportAnnotationView *annotationView = (id)view;
+	MAKRAirportAnnotation *annotation = annotationView.airportAnnotation;
+	
+	NSMutableArray *toolbarIcons = [NSMutableArray array];
+	UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+	
+	if (annotation.containedAnnotations.count == 0) {
+		[toolbarIcons addObject:flexibleSpaceItem];
+		[toolbarIcons addObject:[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Route", nil) style:UIBarButtonItemStylePlain target:self action:@selector(showRouteToSelectedAirport:)]];
+		[toolbarIcons addObject:flexibleSpaceItem];
+	} else {
+		[toolbarIcons addObject:flexibleSpaceItem];
+		[toolbarIcons addObject:[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Focus", nil) style:UIBarButtonItemStylePlain target:self action:@selector(focusOnSelectedAirportCluster:)]];
+		[toolbarIcons addObject:flexibleSpaceItem];
+	}
+	
+	[self.toolbar setItems:toolbarIcons animated:YES];
+	
+	[UIView animateWithDuration:0.25 animations:^() {
+		self.selectedView = view;
+		self.selectedView.layer.zPosition = 2.0;
+		self.selectedView.transform = CGAffineTransformMakeScale(2.0, 2.0);
+	}];
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+	[self.toolbar setItems:@[] animated:YES];
+	
+	[UIView animateWithDuration:0.25
+					 animations:^() {
+						 self.selectedView.layer.zPosition = 1.0;
+						 self.selectedView.transform = CGAffineTransformIdentity;
+					 }
+					 completion:^(BOOL finished) {
+						 self.selectedView = nil;
+					 }];
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
