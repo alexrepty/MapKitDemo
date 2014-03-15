@@ -16,20 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ha-em-ZzK" customClass="ARClusteredMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ha-em-ZzK" customClass="ARClusteredMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="980"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="5be-9K-MZW"/>
                                 </connections>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3j-bE-HNR">
+                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="JGq-TM-5zw"/>
+                                    <constraint firstAttribute="height" constant="44" id="acU-8Y-3Qq"/>
+                                </constraints>
+                                <items/>
+                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8ha-em-ZzK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7ar-R3-htn"/>
-                            <constraint firstAttribute="trailing" secondItem="8ha-em-ZzK" secondAttribute="trailing" id="Bc5-U1-yBa"/>
-                            <constraint firstAttribute="bottom" secondItem="8ha-em-ZzK" secondAttribute="bottom" id="ZgE-LP-dbv"/>
-                            <constraint firstItem="8ha-em-ZzK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mXD-VQ-Pgv"/>
+                            <constraint firstAttribute="trailing" secondItem="8ha-em-ZzK" secondAttribute="trailing" id="3Wk-6Y-Uyf"/>
+                            <constraint firstAttribute="centerX" secondItem="A3j-bE-HNR" secondAttribute="centerX" id="AFn-Ve-Mm7"/>
+                            <constraint firstItem="A3j-bE-HNR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CjV-5C-Zi9"/>
+                            <constraint firstItem="8ha-em-ZzK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KuQ-74-fWW"/>
+                            <constraint firstAttribute="trailing" secondItem="A3j-bE-HNR" secondAttribute="trailing" id="bgJ-xw-BOB"/>
+                            <constraint firstItem="8ha-em-ZzK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bzF-Jp-boc"/>
+                            <constraint firstAttribute="centerX" secondItem="8ha-em-ZzK" secondAttribute="centerX" id="hri-Xo-imy"/>
+                            <constraint firstItem="Gaw-K9-XNP" firstAttribute="top" secondItem="A3j-bE-HNR" secondAttribute="bottom" id="jcE-V2-wXK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -39,6 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="26" y="-105"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
