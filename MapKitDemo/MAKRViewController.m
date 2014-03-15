@@ -94,11 +94,41 @@
 #pragma mark MAKRViewController Interface Actions
 
 - (IBAction)showRouteToSelectedAirport:(id)sender {
+	[self deselectSelectedView];
 	
+	MAKRAirportAnnotation *selectedAnnotation = self.mapView.selectedAnnotations.firstObject;
+	if (![selectedAnnotation isKindOfClass:[MAKRAirportAnnotation class]]) {
+		return;
+	}
+	
+	NSString *latitude = [[NSString stringWithFormat:@"%@", @(selectedAnnotation.coordinate.latitude)] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *longitude = [[NSString stringWithFormat:@"%@", @(selectedAnnotation.coordinate.longitude)] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *routingURLString = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@,%@", latitude, longitude];
+	NSURL *routingURL = [NSURL URLWithString:routingURLString];
+	
+	[[UIApplication sharedApplication] openURL:routingURL];
 }
 
 - (IBAction)focusOnSelectedAirportCluster:(id)sender {
+	[self deselectSelectedView];
 	
+	MAKRAirportAnnotation *selectedAnnotation = self.mapView.selectedAnnotations.firstObject;
+	if (![selectedAnnotation isKindOfClass:[MAKRAirportAnnotation class]]) {
+		return;
+	}
+	
+	MKMapPoint selectedAnnotationMapPoint = MKMapPointForCoordinate(selectedAnnotation.coordinate);
+	MKMapRect mapRect = MKMapRectMake(selectedAnnotationMapPoint.x, selectedAnnotationMapPoint.y, 32.0, 32.0);
+	
+	for (MAKRAirportAnnotation *subAnnotation in selectedAnnotation.containedAnnotations) {
+		MKMapPoint subAnnotationMapPoint = MKMapPointForCoordinate(subAnnotation.coordinate);
+		MKMapRect subAnnotationMapRect = MKMapRectMake(subAnnotationMapPoint.x, subAnnotationMapPoint.y, 32.0, 32.0);
+		
+		mapRect = MKMapRectUnion(mapRect, subAnnotationMapRect);
+	}
+	
+	mapRect = [self.mapView mapRectThatFits:mapRect edgePadding:UIEdgeInsetsMake(16.0, 16.0, 16.0, 16.0)];
+	[self.mapView setVisibleMapRect:mapRect animated:YES];
 }
 
 #pragma mark -
@@ -141,11 +171,12 @@
 						  delay:0.01
 						options:0
 					 animations:^() {
-						 self.selectedView = view;
-						 self.selectedView.layer.zPosition = 2.0;
-						 self.selectedView.transform = CGAffineTransformMakeScale(2.0, 2.0);
+						 view.layer.zPosition = DBL_MAX;
+						 view.transform = CGAffineTransformMakeScale(1.5, 1.5);
 					 }
-					 completion:nil];
+					 completion:^(BOOL finished) {
+						 self.selectedView = view;
+					 }];
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
