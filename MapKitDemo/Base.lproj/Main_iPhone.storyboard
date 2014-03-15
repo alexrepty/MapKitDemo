@@ -16,18 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kP6-Ht-Gm1" customClass="ARClusteredMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kP6-Ht-Gm1" customClass="ARClusteredMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="ZnX-oc-JXG"/>
                                 </connections>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdE-h5-atI">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="h4Q-Cg-tto"/>
+                                </constraints>
+                                <items/>
+                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kP6-Ht-Gm1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0Ok-0j-Sxb"/>
+                            <constraint firstAttribute="trailing" secondItem="kP6-Ht-Gm1" secondAttribute="trailing" id="D53-Cb-04G"/>
+                            <constraint firstItem="QdE-h5-atI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="EWe-1c-Xqf"/>
+                            <constraint firstAttribute="centerX" secondItem="QdE-h5-atI" secondAttribute="centerX" id="Fz0-rC-pXy"/>
+                            <constraint firstAttribute="trailing" secondItem="QdE-h5-atI" secondAttribute="trailing" id="alN-z3-VKC"/>
+                            <constraint firstItem="wrU-w5-xVK" firstAttribute="top" secondItem="QdE-h5-atI" secondAttribute="bottom" id="vYY-lR-UDt"/>
+                            <constraint firstItem="kP6-Ht-Gm1" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="xFv-sl-nVA"/>
+                            <constraint firstAttribute="centerX" secondItem="kP6-Ht-Gm1" secondAttribute="centerX" id="xIy-lt-FFO"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="kP6-Ht-Gm1" id="Fkm-DK-QxL"/>
+                        <outlet property="toolbar" destination="QdE-h5-atI" id="9dZ-id-ctU"/>
                         <outlet property="view" destination="kh9-bI-dsS" id="ye7-xx-4d9"/>
                     </connections>
                 </viewController>
