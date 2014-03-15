@@ -98,12 +98,12 @@ static void *MAKRAirportAnnotationViewContainedAnnotationChangeContext = (void *
 		UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(0.5, 0.5, 31, 31) cornerRadius: 4];
 		
 		CGFloat greenBluePart = 1.0;
-		CGFloat minGreenBluePart = 0.25;
-		CGFloat greenBlueReduction = (self.airportAnnotation.containedAnnotations.count + 1) * 0.01;
-		greenBluePart -= greenBlueReduction;
-		if (greenBluePart < minGreenBluePart) {
-			greenBluePart = minGreenBluePart;
-		}
+//		CGFloat minGreenBluePart = 0.25;
+//		CGFloat greenBlueReduction = (self.airportAnnotation.containedAnnotations.count + 1) * 0.01;
+//		greenBluePart -= greenBlueReduction;
+//		if (greenBluePart < minGreenBluePart) {
+//			greenBluePart = minGreenBluePart;
+//		}
 		UIColor *fillColor = [UIColor colorWithRed:1.0 green:greenBluePart blue:greenBluePart alpha:1.0];
 		[fillColor setFill];
 		[roundedRectanglePath fill];
