@@ -19,4 +19,10 @@
  */
 @property(strong, nonatomic) IBOutlet ARClusteredMapView *mapView;
 
+/*!
+ @property toolbar
+ @abstract A toolbar that contains buttons for actions relating to the current state of the map view.
+ */
+@property(strong, nonatomic) IBOutlet UIToolbar *toolbar;
+
 @end
