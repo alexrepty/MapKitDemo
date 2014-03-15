@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="44" id="h4Q-Cg-tto"/>
                                 </constraints>
                                 <items/>
-                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

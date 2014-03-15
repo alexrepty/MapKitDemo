@@ -52,6 +52,7 @@
 		B47A072C18D354E600B4E95D /* x_seaplane_base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072218D354E600B4E95D /* x_seaplane_base@2x.png */; };
 		B47A072D18D354E600B4E95D /* x_small_airport.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072318D354E600B4E95D /* x_small_airport.png */; };
 		B47A072E18D354E600B4E95D /* x_small_airport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47A072418D354E600B4E95D /* x_small_airport@2x.png */; };
+		B4F6740B18D4736A00F91A9C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6740A18D4736A00F91A9C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		B47A072218D354E600B4E95D /* x_seaplane_base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_seaplane_base@2x.png"; sourceTree = "<group>"; };
 		B47A072318D354E600B4E95D /* x_small_airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_small_airport.png; sourceTree = "<group>"; };
 		B47A072418D354E600B4E95D /* x_small_airport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_small_airport@2x.png"; sourceTree = "<group>"; };
+		B4F6740A18D4736A00F91A9C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			files = (
 				B47A06B818D342A900B4E95D /* CoreGraphics.framework in Frameworks */,
 				B47A06BA18D342A900B4E95D /* UIKit.framework in Frameworks */,
+				B4F6740B18D4736A00F91A9C /* MapKit.framework in Frameworks */,
 				B47A06B618D342A900B4E95D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +170,7 @@
 		B47A06B418D342A900B4E95D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4F6740A18D4736A00F91A9C /* MapKit.framework */,
 				B47A06B518D342A900B4E95D /* Foundation.framework */,
 				B47A06B718D342A900B4E95D /* CoreGraphics.framework */,
 				B47A06B918D342A900B4E95D /* UIKit.framework */,
@@ -318,6 +322,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = alexrepty;
 				TargetAttributes = {
+					B47A06B118D342A900B4E95D = {
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					B47A06D518D342A900B4E95D = {
 						TestTargetID = B47A06B118D342A900B4E95D;
 					};
@@ -620,6 +631,7 @@
 				B47A06E918D342A900B4E95D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B47A06EA18D342A900B4E95D /* Build configuration list for PBXNativeTarget "MapKitDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -628,6 +640,7 @@
 				B47A06EC18D342A900B4E95D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
