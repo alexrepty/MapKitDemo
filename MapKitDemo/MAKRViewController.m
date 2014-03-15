@@ -82,6 +82,14 @@
     return result;
 }
 
+- (void)deselectSelectedView {
+	[UIView animateWithDuration:0.25
+					 animations:^() {
+						 self.selectedView.layer.zPosition = 1.0;
+						 self.selectedView.transform = CGAffineTransformIdentity;
+					 }];
+}
+
 #pragma mark -
 #pragma mark MAKRViewController Interface Actions
 
@@ -127,25 +135,22 @@
 	}
 	
 	[self.toolbar setItems:toolbarIcons animated:YES];
-	
-	[UIView animateWithDuration:0.25 animations:^() {
-		self.selectedView = view;
-		self.selectedView.layer.zPosition = 2.0;
-		self.selectedView.transform = CGAffineTransformMakeScale(2.0, 2.0);
-	}];
+
+	[self deselectSelectedView];
+	[UIView animateWithDuration:0.25
+						  delay:0.01
+						options:0
+					 animations:^() {
+						 self.selectedView = view;
+						 self.selectedView.layer.zPosition = 2.0;
+						 self.selectedView.transform = CGAffineTransformMakeScale(2.0, 2.0);
+					 }
+					 completion:nil];
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
 	[self.toolbar setItems:@[] animated:YES];
-	
-	[UIView animateWithDuration:0.25
-					 animations:^() {
-						 self.selectedView.layer.zPosition = 1.0;
-						 self.selectedView.transform = CGAffineTransformIdentity;
-					 }
-					 completion:^(BOOL finished) {
-						 self.selectedView = nil;
-					 }];
+	[self deselectSelectedView];
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {

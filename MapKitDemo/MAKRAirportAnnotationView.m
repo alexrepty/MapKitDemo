@@ -29,8 +29,6 @@ static void *MAKRAirportAnnotationViewContainedAnnotationChangeContext = (void *
 		self.airportAnnotation = annotation;
 		
 		[self.airportAnnotation addObserver:self forKeyPath:NSStringFromSelector(@selector(containedAnnotations)) options:0 context:MAKRAirportAnnotationViewContainedAnnotationChangeContext];
-		
-		self.canShowCallout = YES;
 	}
 	return self;
 }
