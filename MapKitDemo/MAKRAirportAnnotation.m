@@ -31,6 +31,9 @@ NSString *const MAKRAirportAnnotationIconClosed = @"closed";
         
         self.code = code;
         self.city = city;
+		
+		self.title = city;
+		self.subtitle = code;
         
 		self.type = type;
         self.icon = [_airportAnnotationIcons objectForKey:self.type];

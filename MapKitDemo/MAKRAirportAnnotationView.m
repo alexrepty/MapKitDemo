@@ -29,6 +29,8 @@ static void *MAKRAirportAnnotationViewContainedAnnotationChangeContext = (void *
 		self.airportAnnotation = annotation;
 		
 		[self.airportAnnotation addObserver:self forKeyPath:NSStringFromSelector(@selector(containedAnnotations)) options:0 context:MAKRAirportAnnotationViewContainedAnnotationChangeContext];
+		
+		self.canShowCallout = YES;
 	}
 	return self;
 }
@@ -40,6 +42,13 @@ static void *MAKRAirportAnnotationViewContainedAnnotationChangeContext = (void *
 	if (context == MAKRAirportAnnotationViewContainedAnnotationChangeContext) {
 		[self setNeedsDisplay];
 	}
+}
+
+#pragma mark -
+#pragma mark MKAnnotationView Methods
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+	// Do not forward to super since we don't want the system-provided callout to be shown.
 }
 
 #pragma mark -
